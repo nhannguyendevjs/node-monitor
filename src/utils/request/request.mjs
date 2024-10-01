@@ -48,4 +48,4 @@ const resSend = (req, res, code, data) => {
   res.status(code).send(data);
 };
 
-export { resJSON, resSend };
+export { resJSON, resSend, showLog };
