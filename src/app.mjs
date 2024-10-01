@@ -9,16 +9,17 @@ import { RequestConfigs } from './app.config.mjs';
 import { cacheControlNoStore } from './middleware/cache-control.mjs';
 import { V1Router } from './routes/v1/v1.mjs';
 
-// Bootstrap modules and services
+// Services
 import * as AppConfigModule from './app.config.mjs';
 import * as LoggerService from './services/logger/logger.mjs';
 
+const app = express();
+
+// Bootstrap services
 await LoggerService.bootstrap();
 await AppConfigModule.bootstrap();
 
 const __dirname = path.resolve();
-
-const app = express();
 
 app.use(cors());
 app.use(compression());
